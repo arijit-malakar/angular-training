@@ -19,13 +19,14 @@ export class LoginComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   toggle: boolean = true;
   @Input() counter: any;
   value: any = 'one way binding';
+  name = 'abc';
 
   constructor(_service: MainService, private loginService: LoginService) {
     //let course = new MainService();
     console.log('course: ', _service.getCourses());
     console.log('city: ', this.loginService.setLoginDetails().city);
     console.log('inside constructor');
-    // console.log('name', name)
+    console.log('name', this.name);
   }
 
   // Will be called first before ngOnInit, ngDoCheck

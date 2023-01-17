@@ -1,8 +1,29 @@
-<app-login [counter]="count" *ngIf="childHide"></app-login>
+<!-- <app-login [counter]="count" *ngIf="childHide"></app-login>
+<div class="main-container">
+  <h1 class="text-color">This is main container.</h1>
+</div>
 <button (click)="toggleChild()">Hide/Show Child</button>
 <div>
   <button (click)="increment()">Increment</button>
   <button (click)="decrement()">Decrement</button>
 </div>
 
-<course></course>
+<course></course> -->
+
+<!-- <div *ngFor="let product of products">
+  {{ product.title }}
+  {{ product.id }}
+  {{ product.description }}
+</div> -->
+
+<div *ngIf="!productdetail; else singleProduct">
+  <app-products (productDetail)="assignData($event)"></app-products>
+</div>
+<div>
+  <ng-template #singleProduct>
+    <app-single-product
+      (removeValue)="assignData($event)"
+      [productDetail]="productdetail"
+    ></app-single-product>
+  </ng-template>
+</div>
